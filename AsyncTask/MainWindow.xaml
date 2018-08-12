@@ -1,0 +1,63 @@
+﻿<Window x:Class="AsyncTask.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AsyncTask"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="AsyncTask" Height="300" Width="800">
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="50"/>
+            <Setter Property="Margin" Value="20,0" />
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <GroupBox Header="Mode" Margin="10,5">
+            <StackPanel Orientation="Horizontal">
+                <RadioButton x:Name="rdAwait" IsChecked="True" Content="await" Margin="5" Click="rdAwait_Click" />
+                <RadioButton x:Name="rdNotAwait" Content="not await" Margin="5" Click="rdNotAwait_Click"/>
+            </StackPanel>
+        </GroupBox>
+        
+        <DockPanel Grid.Row="0" Grid.ColumnSpan="3">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center" Grid.ColumnSpan="3" Margin="10">
+                <Button x:Name="btStart" Content="Star" Width="100" Height="30" Margin="5" Click="btStart_Click"/>
+                <Button x:Name="btReset" Content="Reset" Width="100" Height="30" Margin="5" Click="btReset_Click"/>
+            </StackPanel>
+        </DockPanel>
+
+        <DockPanel Grid.ColumnSpan="3" Grid.Row="2">
+            <Label Content="events" DockPanel.Dock="Top"/>
+            <ListView x:Name="events" />
+        </DockPanel>
+
+        <StackPanel Grid.Column="0" Grid.Row="1">
+            <Label Content="firstClock"/>
+            <TextBlock x:Name="firstClock" Text="00:00:00" />
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="1">
+            <Label Content="secondClock"/>
+            <TextBlock x:Name="secondClock" Text="00:00:00" />
+        </StackPanel>
+        <StackPanel Grid.Column="2" Grid.Row="1">
+            <Label Content="thirdClock"/>
+            <TextBlock x:Name="thirdClock" Text="00:00:00" />
+        </StackPanel>
+    </Grid>
+</Window>
+
+
+    
